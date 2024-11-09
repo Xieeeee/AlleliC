@@ -1,0 +1,15 @@
+
+### Allelic Hi-C mapping: from fastq to pairs file
+
+```
+ref=`your bwa mem index`
+chrom_size=`chrom size file`
+phase1=`allele1 name`
+phase2=`allele2 name`
+s=`sequencing librari prefix` ### read1 and read2: ${s}_R1.fastq.gz, ${s}_R2.fastq.gz
+out_dir=`your output directory`
+
+bwa mem -SP -t 16 ${ref} ${s}_R1.fastq.gz ${s}_R2.fastq.gz | samtools view -bhS - > ${s}.bam
+bash allelic_hic_mapping_v3.sh -i ${s}.bam -o ${out_dir} -c ${chrom_size} -p1 ${phase1} -p2 ${phase2}
+```
+

@@ -1,4 +1,7 @@
 
+### update 241127
+We now use `bwa mem2` to perform mapping in order to reduce processing time. The example data processed with `bwa mem` has been moved to archive.
+
 ### example with MH213 shallow sequencing
 
 md5sum for example fastq:
